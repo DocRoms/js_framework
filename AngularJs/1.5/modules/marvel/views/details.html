@@ -1,0 +1,38 @@
+<section>
+    <h1 ng-bind="items.name"></h1>
+    <img class="thumbnail thumbnailIcon" ng-src="{{ items.thumbnail.path }}.{{ items.thumbnail.extension }}" />
+    <article ng-bind="items.description"></article>
+
+
+    <section ng-show="! items.name">
+        <div class="loader"></div>
+    </section>
+
+    <section ng-show="items.comics.available > 0">
+        <h3><span ng-bind="items.name"></span> est présent dans <span ng-bind="items.comics.available"></span> album(s)</h3>
+        <table class="table table-striped table-hover spacer">
+            <thead>
+                <th>Nom de l'album</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="comic in items.comics.items">
+                    <td>{{ comic.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section ng-show="items.series.available > 0">
+        <h3><span ng-bind="items.name"></span> est présent dans <span ng-bind="items.series.available"></span> série(s)</h3>
+        <table class="table table-striped table-hover spacer">
+            <thead>
+                <th>Nom de la série</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="serie in items.series.items">
+                    <td>{{ serie.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</section>

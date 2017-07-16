@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="main">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ title }}</title>
+
+        <!-- Styles CSS -->
+        <link rel="stylesheet" href="lib/bootstrap-3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/bootstrap-3.1.1/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/style.css"/>
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="lib/md5.js"></script>
+        <script type="text/javascript" src="lib/angular-1.5.9/angular.min.js"></script>
+        <script type="text/javascript" src="lib/angular-1.5.9/angular-route.min.js"></script>
+        <script type="text/javascript" src="main/app.js"></script>
+        <script type="text/javascript" src="modules/marvel/controllers/marvel.js"></script>
+        <script type="text/javascript" src="modules/marvel/services/marvelApi.js"></script>
+    </head>
+    <body>
+        <header></header>
+        <div ng-view></div>
+        <footer></footer>
+    </body>
+</html>

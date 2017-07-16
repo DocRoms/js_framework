@@ -1,0 +1,9 @@
+/app/cache/*
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/app/phpunit.xml
+/build/
+/composer.phar
+/.idea/
+.DS_Store
