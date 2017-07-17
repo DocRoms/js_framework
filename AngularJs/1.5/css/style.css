@@ -2,64 +2,7 @@
 	cursor: pointer;
 }
 
-.spacer {
-	margin-top: 20px;
-}
-
-.hSpacer {
-	margin-left: 20px;
-}
-
-.table-hover > tbody > tr:hover > td,
-.table-hover > tbody > tr:hover > th {
-  background-color: #428BCA;
-  color: #ffffff;
-}
-
-.clickable {
-	cursor: pointer;
-}
-
-.colDe {
-	width: 20%;
-}
-
-.colA {
-	width: 15%;
-}
-.thumbnailIcon{
-	max-height:300px;
-	max-width: 200px;
-}
-.colObjet {
-	width: 45%;
-}
-
-.colDate {
-	width: 15%;
-}
-
-.surbrillanceRecherche {
-	background-color: #FFD42A;
-}
-
-.labelChampNouveauMail {
-	width: 70px;
-}
-
-.input-group {
-	width: 100%;
-}
-
-.contenuNouveauMail {
-	width: 100%;
-}
-
-input.ng-invalid {
-	background-color: rgba(255, 0, 0, 0.5);
-}
-
-.loader {;
+div.loader {;
 	border: 16px solid #f3f3f3; /* Light grey */
 	border-top: 16px solid #3498db; /* Blue */
 	border-radius: 50%;
@@ -69,11 +12,34 @@ input.ng-invalid {
 	animation: spin 2s linear infinite;
 }
 
+div.paginatorContainer{
+	text-align: center;
+}
+
+img.thumbnailIcon{
+	max-height:300px;
+	max-width: 200px;
+}
+
+input.ng-invalid {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+table.spacer {
+	margin-top: 20px;
+}
+
+table.table-hover > tbody > tr:hover > td,
+table.table-hover > tbody > tr:hover > th {
+  background-color: #428BCA;
+  color: #ffffff;
+}
+
+tr.clickable {
+	cursor: pointer;
+}
+
 @keyframes spin {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
-}
-
-.paginatorContainer{
-	text-align: center;
 }

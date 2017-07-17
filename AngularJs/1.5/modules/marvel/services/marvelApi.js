@@ -24,23 +24,21 @@ var MarvelApiService = (function () {
      * @param $nbPage
      * @returns {string}
      */
-    MarvelApiService.prototype.formatUrl = function($path, $nbPage = 1){
+    MarvelApiService.prototype.formatUrl = function($path, $nbPage = 0){
+        /* @todo : rapidFix : manage this on view  (for display 20 first result with offset calculation) */
+        $nbPage = parseInt($nbPage) > 0 ? parseInt($nbPage) - 1 : 0;
+
         let formattedPath = this.marvelBaseUri + $path;
 
         let timestamp = Math.round(+new Date() / 1000);
         formattedPath += '?ts=' + timestamp;
-
         formattedPath += '&offset=' +  ($nbPage * this.apiOffset);
-
         formattedPath += '&limit=' + this.apiLimit;
-
         formattedPath += '&apikey=' + this.marvelPublicKey;
 
         let hashKey = timestamp + this.marvelPrivateKey + this.marvelPublicKey;
 
         formattedPath += '&hash=' + md5(hashKey);
-
-        console.log(formattedPath);
 
         return formattedPath;
     };
@@ -49,8 +47,7 @@ var MarvelApiService = (function () {
      * Get the list of comics
      * @returns {string}
      */
-    MarvelApiService.prototype.getComicListByPage = function ($nbPage = 1) {
-
+    MarvelApiService.prototype.getComicListByPage = function ($nbPage = 0) {
         let comicsPath = this.formatUrl('comics', $nbPage);
 
         this.http.get(comicsPath).
@@ -65,11 +62,11 @@ var MarvelApiService = (function () {
 
     /**
      * Get the list of characters by page (20 items by page)
+     * This function has asynchronous.
      * http://gateway.marvel.com:80/v1/public/characters?limit=20&offset=20&apikey=
      * @returns {string}
      */
-    MarvelApiService.prototype.getCharactersListByPage = function ($nbPage = 1) {
-
+    MarvelApiService.prototype.getCharactersListByPage = function ($nbPage = 0) {
         let comicsPath = this.formatUrl('characters', $nbPage);
 
         let defer = this.q.defer();
@@ -84,11 +81,11 @@ var MarvelApiService = (function () {
 
     /**
      * Get details of character by Id
+     * This function has asynchronous.
      * http://gateway.marvel.com:80/v1/public/characters/199?limit=20&offset=20&apikey=
      * @returns {string}
      */
-    MarvelApiService.prototype.getCharactersDetailsById = function ($persoId = 1) {
-
+    MarvelApiService.prototype.getCharactersDetailsById = function ($persoId = 0) {
         let comicsPath = this.formatUrl('characters/'+ $persoId, 1);
 
         let defer = this.q.defer();

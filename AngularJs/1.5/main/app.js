@@ -1,16 +1,20 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
+/**
+ *  Declare main application with dependencies
+ * [ngRoute, marvel]
+ */
 angular.module('main', [
     'ngRoute',
     'marvel'
 ])
 
+// Initialize title on main controller.
 .controller('mainCtrl', ['$scope', function($scope) {
     $scope.title = 'Marvel Application';
 }])
 
-// Click to Navigate to Link.
+// Create a directive for simplify the navigation with path.
 .directive('clickLink', ['$location', function($location) {
     return {
         link: function(scope, element, attrs) {
@@ -23,6 +27,7 @@ angular.module('main', [
     }
 }])
 
+// Define the main route (rules was : display 20 elements after the N°100 = page 6)
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/marvel/5'});
+    $routeProvider.otherwise({redirectTo: '/marvel/6'});
 }]);
